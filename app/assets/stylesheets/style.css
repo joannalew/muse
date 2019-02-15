@@ -184,9 +184,30 @@ body {
     width: calc((100 / var(--height)) * var(--width))
 }
 
-/* .job-show-coname {
-    color: 	#808080;
-    font-size: 24px;
-    margin-bottom: 4px;
-} */
+
+
+.search-form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 7px;
+    background-color: #E8E8E8;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.search-button {
+    padding: 7px 10px;
+    background-color: #0568ab;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.search-button:hover {
+    background-color: #25c7f8;
+}
 

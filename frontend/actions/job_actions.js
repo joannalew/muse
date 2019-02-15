@@ -1,4 +1,5 @@
 import * as JobsApiUtil from '../util/jobs_api_util';
+import * as SearchApiUtil from '../util/search_api_util';
 
 export const RECEIVE_JOBS = "RECEIVE_JOBS";
 export const RECEIVE_JOB = "RECEIVE_JOB";
@@ -23,4 +24,9 @@ export const fetchJobs = () => dispatch => (
 export const fetchJob = id => dispatch => (
     JobsApiUtil.fetchJob(id)
         .then(payload => dispatch(receiveJob(payload)))
+);
+
+export const searchJobs = query => dispatch => (
+    SearchApiUtil.searchJobs(query)
+        .then(payload => dispatch(receiveJobs(payload)))
 );

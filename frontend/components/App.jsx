@@ -10,9 +10,10 @@ import JobShowContainer from '../components/jobs/job_show_container';
 const App = () => (
     <div>
         <Route path="/" component={ NavbarContainer } />
-        <Route exact path="/" component={ JobIndexContainer } />
+        <Route exact path="/" component={ Home } />
         <Route exact path="/signup" component={ SignupContainer } />
         <Route exact path="/login" component={ LoginContainer} />
+        <Route exact path="/jobs" component={ JobIndexContainer } />
         <Route exact path="/jobs/:jobId" component={ JobShowContainer } />
     </div>
 );

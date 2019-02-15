@@ -1,22 +1,27 @@
 class Api::SearchesController < ApplicationController
     def job_search
-        query = params[:query][:job]
-        queryTitle = query.split(' ').map do |str|
-            str = "LOWER(title) LIKE '%#{str.downcase}%'"
-        end.join(" OR ");
+        query = params[:query][:query]
 
-        queryCompany = query.split(' ').map do |str|
-            str = "LOWER(name) LIKE '%#{str.downcase}%'"
-        end.join(" OR ");
+        if query != ''
+            queryTitle = query.split(' ').map do |str|
+                str = "LOWER(title) LIKE '%#{str.downcase}%'"
+            end.join(" OR ");
 
-        queryLocation = "LOWER(location) = '#{query.downcase}'"
+            queryCompany = query.split(' ').map do |str|
+                str = "LOWER(name) LIKE '%#{str.downcase}%'"
+            end.join(" OR ");
 
-        @jobs = Job.where('(' + queryTitle + ')')
-        @company = Company.where('(' + queryCompany + ')')
+            queryLocation = "LOWER(location) = '#{query.downcase}'"
 
-        @jobs = @company[0].jobs if !@company.empty? && @jobs.empty?
-        @jobs = Job.where('(' + queryLocation + ')') if @jobs.empty?
-        @jobs = Job.all if @jobs.empty?
+            @jobs = Job.where('(' + queryTitle + ')')
+            @company = Company.where('(' + queryCompany + ')')
+
+            @jobs = @company[0].jobs if !@company.empty? && @jobs.empty?
+            @jobs = Job.where('(' + queryLocation + ')') if @jobs.empty?
+            @jobs = Job.all if @jobs.empty?
+        else
+            @jobs = Job.all
+        end
         
         render '/api/jobs/index'
     end
