@@ -9,7 +9,7 @@ class JobShow extends React.Component {
         let jobInfo = (<div></div>);
         if (this.props.jobs[this.props.jobId]) {
             let job = this.props.jobs[this.props.jobId];
-                let newDescription = job.description.split('\n').map((item, i) => {
+            let newDescription = job.description.split('\n').map((item, i) => {
                 return <p key={i}>{item}</p>
             });
 
@@ -17,8 +17,13 @@ class JobShow extends React.Component {
                 <div>
                     <div className="job-show-header">
                         <div>
-                            <div className="job-show-title">{job.title}</div>
-                            <div className="job-show-location">{job.location}</div>
+                            <div className="company-info">
+                                <img src={this.props.companies[job.company_id].logo} className="job-show-logo" />
+                            </div>
+                            <div>
+                                <div className="job-show-title">{job.title}</div>
+                                <div className="job-show-location">{job.location}</div>
+                            </div>
                         </div>
                         <a href={job.url} target="_blank">
                             <div className="job-show-apply">Apply For This Job</div>

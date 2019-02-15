@@ -658,10 +658,15 @@ function (_React$Component) {
         jobInfo = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "job-show-header"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "company-info"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: this.props.companies[job.company_id].logo,
+          className: "job-show-logo"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "job-show-title"
         }, job.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "job-show-location"
-        }, job.location)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        }, job.location))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: job.url,
           target: "_blank"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -705,9 +710,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  console.log('state', state);
+  console.log('ownProps', ownProps);
   var jobId = parseInt(ownProps.match.params.jobId);
   return {
     currentUser: state.entities.users[state.session.id],
+    companies: state.entities.companies,
     jobs: state.entities.jobs,
     jobId: jobId
   };

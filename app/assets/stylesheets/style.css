@@ -179,4 +179,14 @@ body {
     margin-bottom: 7px;
 }
 
+.company-info img {
+    height: 100px;
+    width: calc((100 / var(--height)) * var(--width))
+}
+
+/* .job-show-coname {
+    color: 	#808080;
+    font-size: 24px;
+    margin-bottom: 4px;
+} */
 
