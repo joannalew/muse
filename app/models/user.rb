@@ -4,6 +4,15 @@ class User < ApplicationRecord
     validates :session_token, :email, uniqueness: true
     validates :password, length: { minimum: 6, allow_nil: true }
 
+    has_many :follows,
+      primary_key: :id,
+      foreign_key: :user_id,
+      class_name: :Follow
+
+    has_many :followed_jobs,
+      through: :follows,
+      source: :job
+
     attr_reader :password
     after_initialize :ensure_session_token
 

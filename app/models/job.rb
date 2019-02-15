@@ -6,4 +6,12 @@ class Job < ApplicationRecord
         foreign_key: :company_id,
         class_name: :Company
 
+    has_many :follows,
+        primary_key: :id,
+        foreign_key: :job_id,
+        class_name: :Follow
+
+    has_many :following_users,
+        through: :follows,
+        source: :user
 end
