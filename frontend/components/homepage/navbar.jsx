@@ -23,9 +23,11 @@ const Navbar = props => {
             <div className="arrange-outer">
                 <div className="arrange-inner">
                     <div className="header">
-                        <div className="header-logo-image">
-                            <img src="https://i.imgur.com/yrjcatk.png"></img>
-                        </div>
+                        <Link to='/'>
+                            <div className="header-logo-image">
+                                <img src="https://i.imgur.com/yrjcatk.png"></img>
+                            </div>
+                        </Link>
                         <div>
                             {userNav}
                         </div>

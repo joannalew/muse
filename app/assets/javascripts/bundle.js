@@ -393,11 +393,13 @@ var Navbar = function Navbar(props) {
     className: "arrange-inner"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header-logo-image"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "https://i.imgur.com/yrjcatk.png"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, userNav)))));
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, userNav)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Navbar);

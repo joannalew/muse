@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :companies, only: [:create]
     resources :jobs, only: [:create, :index, :show]
+    get 'search', to: 'searches#job_search'
   end
   
   root "static_pages#root"
